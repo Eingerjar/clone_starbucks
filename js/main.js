@@ -46,3 +46,36 @@ new Swiper(".notice-line .swiper-container", {
   autoplay: true,
   loop: true,
 });
+
+new Swiper(".promotion .swiper-container", {
+  slidesPerView: 3,
+  spaceBetween: 10,
+  centeredSlides: true,
+  loop: true,
+  pagination: {
+    el: ".promotion .swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    prevEl: ".promotion .swiper-prev",
+    nextEl: ".promotion .swiper-next",
+  },
+  autoplay: {
+    delay: 5000,
+  },
+});
+
+const promotionEl = document.querySelector(".promotion");
+const promotiontToggleBtn = document.querySelector(".toggle-promotion");
+const toggleBtnIcon = promotiontToggleBtn.querySelector(".material-icons");
+let isHidePromotion = false;
+promotiontToggleBtn.addEventListener("click", function () {
+  isHidePromotion = !isHidePromotion;
+  if (isHidePromotion) {
+    promotionEl.classList.add("hide");
+    toggleBtnIcon.innerText = "download";
+  } else {
+    promotionEl.classList.remove("hide");
+    toggleBtnIcon.innerText = "upload";
+  }
+});
